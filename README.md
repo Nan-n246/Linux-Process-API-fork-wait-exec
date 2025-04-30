@@ -24,25 +24,57 @@ Test the C Program for the desired output.
 # PROGRAM:
 
 ## C Program to create new process using Linux API system calls fork() and getpid() , getppid() and to print process ID and parent Process ID using Linux API system calls
+```
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(void)
+{	//variable to store calling function's process id
+	pid_t process_id;
+	//variable to store parent function's process id
+	pid_t p_process_id;
+	//getpid() - will return process id of calling function
+	process_id = getpid();
+	//getppid() - will return process id of parent function
+	p_process_id = getppid();
+	//printing the process ids
 
-![Screenshot 2025-04-30 160905](https://github.com/user-attachments/assets/38d75176-df77-42bb-891e-d2d1414ea4bb)
+//printing the process ids
+	printf("The process id: %d\n",process_id);
+	printf("The process id of parent function: %d\n",p_process_id);
+	return 0; }
+```
+
 
 
 ## OUTPUT
 
-![Screenshot 2025-04-30 160243](https://github.com/user-attachments/assets/827a20e1-8154-4a66-811e-a89bc0481dfa)
+![Screenshot 2025-04-30 162320](https://github.com/user-attachments/assets/e6960fc3-b99f-4ac0-b5bc-4407bf6c51e6)
+
 
 
 
 ## C Program to execute Linux system commands using Linux API system calls exec() , exit() , wait() family
 
+```
 
-![Screenshot 2025-04-30 160313](https://github.com/user-attachments/assets/dfab829c-9dd4-4f63-bbc8-c7b0ef8275bc)
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	printf("Running ps with execlp\n");
+	execlp("ps", "ps", "ax", NULL);
+	printf("Done.\n");
+	exit(0);
+}
+```
 
 
 ## OUTPUT
 
-![Screenshot 2025-04-30 160355](https://github.com/user-attachments/assets/59d1bf2c-e9c6-48ff-9ce7-59b6f54bbb39)
+![Screenshot 2025-04-30 162427](https://github.com/user-attachments/assets/54a2635b-0a74-4ac3-9221-1b44deb68178)
+
 
 
 # RESULT:
